@@ -1,0 +1,26 @@
+{
+  "name": "my__port",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tailwindcss build src/styles.css -o src/styles_dev.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keisuke9360-0122/my__port.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keisuke9360-0122/my__port/issues"
+  },
+  "homepage": "https://github.com/keisuke9360-0122/my__port#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19"
+  }
+}
