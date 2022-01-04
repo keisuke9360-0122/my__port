@@ -1,0 +1,292 @@
+@import 'mixin';
+$w: 50px;
+$h: 80px;
+$xspace: $w/2;
+$yspace: $h/4 - 4;
+$speed: 1.5s;
+
+.tetrominos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-$h, -$w);
+}
+
+.tetromino {
+  width: $w;
+  height: $h;
+  position: absolute;
+
+  transition: all ease 0.3s;
+  background: url('data:image/svg+xml;utf-8,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 684"%3E%3Cpath fill="%23010101" d="M305.7 0L0 170.9v342.3L305.7 684 612 513.2V170.9L305.7 0z"/%3E%3Cpath fill="%23fff" d="M305.7 80.1l-233.6 131 233.6 131 234.2-131-234.2-131"/%3E%3C/svg%3E')
+    no-repeat top center;
+}
+
+.box1 {
+  animation: tetromino1 $speed ease-out infinite;
+}
+.box2 {
+  animation: tetromino2 $speed ease-out infinite;
+}
+.box3 {
+  animation: tetromino3 $speed ease-out infinite;
+  z-index: 2;
+}
+.box4 {
+  animation: tetromino4 $speed ease-out infinite;
+}
+.box5 {
+  animation: tetromino5 $speed ease-out infinite;
+}
+.box6 {
+  animation: tetromino6 $speed ease-out infinite;
+}
+
+@keyframes tetromino1 {
+  0%,
+  40% {
+    /* compose logo */ /* 1 on 3 */ /* L-shape */
+    transform: translate(0, 0);
+  }
+  50% {
+    /* pre-box */
+    transform: translate($xspace, -$yspace);
+  }
+  60%,
+  100% {
+    /* box */ /* compose logo */
+    transform: translate($xspace * 2, 0);
+  }
+}
+
+@keyframes tetromino2 {
+  0%,
+  20% {
+    /* compose logo */ /* 1 on 3 */
+    transform: translate($xspace * 2, 0px);
+  }
+  40%,
+  100% {
+    /* L-shape */ /* box */ /* compose logo */
+    transform: translate($xspace * 3, $yspace);
+  }
+}
+
+@keyframes tetromino3 {
+  0% {
+    /* compose logo */
+    transform: translate($xspace * 3, $yspace);
+  }
+  20%,
+  60% {
+    /* 1 on 3 */ /* L-shape */ /* box */
+    transform: translate($xspace * 2, $yspace * 2);
+  }
+  90%,
+  100% {
+    /* compose logo */
+    transform: translate($xspace, $yspace);
+  }
+}
+
+@keyframes tetromino4 {
+  0%,
+  60% {
+    /* compose logo */ /* 1 on 3 */ /* L-shape */ /* box */
+    transform: translate($xspace, $yspace);
+  }
+  90%,
+  100% {
+    /* compose logo */
+    transform: translate(0, 0);
+  }
+}
+.loaded {
+  animation: fadeOut 3s forwards;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+.container {
+  display: none;
+  animation: fadein 3s forwards;
+  height: 100vh;
+  position: relative;
+  width: 100%;
+}
+.in {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.about-container {
+  display: none;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*ボール*/
+.ball {
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: #0091ea;
+  opacity: 0.6;
+  animation: bound-anim 2s infinite;
+  margin: 0 auto;
+}
+.second-ball {
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgb(149, 149, 252);
+  opacity: 0.6;
+  animation: bound-anim 2s infinite;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  font-size: 32px;
+}
+
+@keyframes bound-anim {
+  0%,
+  100% {
+    top: 50%;
+    transform: scale(1);
+  }
+  30% {
+    top: 0;
+    transform: scale(0.96, 1.04);
+  }
+  60% {
+    transform: scale(1);
+  }
+  90% {
+    top: 50%;
+    transform: scale(1.15, 0.9);
+  }
+}
+
+/*影*/
+.shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: -600px; /*対象のheightと微調節*/
+  margin: auto;
+  width: 200px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  filter: blur(6px);
+  opacity: 0.9;
+  animation: shadow-anim 2s infinite;
+}
+
+@keyframes shadow-anim {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: blur(4px);
+  }
+  30% {
+    transform: scale(1.6, 1);
+    filter: blur(8px);
+  }
+}
+
+.click-text {
+  display: none;
+}
+.menu {
+  display: none;
+  animation: fadein 3s forwards;
+  height: 100vh;
+  // position: relative;
+  width: 100%;
+  // display: flex;
+}
+.fb {
+  height: 100%;
+  width: 50%;
+  position: relative;
+  display: none;
+}
+#about-container {
+  display: none;
+  height: 100vh;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  // &.about-text{
+  //   display:none;
+  // }
+}
+#char {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  &.inview {
+    opacity: 1;
+   & .txt {
+     display: inline-block;
+     @include animation($name:kf-animate,
+     $timing-function:ease,
+     $fill-mode:both);
+     @for $i from 1 through 6{
+       &:nth-child(#{$i}){
+         animation-delay: $i * 0.3s;
+       }
+     }
+   }
+}
+}
+
+
+@keyframes kf-animate {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+

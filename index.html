@@ -1,19 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>my portfolio</title>
-  <link rel="stylesheet" href="src/styles_dev.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/d3js/5.15.1/d3.min.js"></script>
-</head>
-<div class="container">
-  <p class="text-gray-600 text-red-400">aaa
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>my portfolio</title>
+    <link rel="stylesheet" href="src/styles_dev.css" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div id="bf-loader">
+      <div class="tetrominos">
+        <div class="tetromino box1"></div>
+        <div class="tetromino box2"></div>
+        <div class="tetromino box3"></div>
+        <div class="tetromino box4"></div>
+      </div>
+    </div>
 
-  </p>
-</div>
-<body>
-  
-</body>
+    <div class="container">
+      <!-- <div class="bound-container"> -->
+      <span class="ball" id="ball"></span>
+      <span class="shadow"></span>
+
+      <!-- </div> -->
+      <!-- <div class="bound text-center">
+        <div class="about">
+        <p>はじめまして</p>
+        </div>
+        <div></div>
+        <div></div>
+      </div> -->
+    </div>
+    <div id="about-container">
+      <p class="about-text">はじめまして</p>
+      <div id="char"></div>
+    </div>
+    <div class="menu">
+      <div class="fb">
+        <span class="second-ball"id="second-ball" >
+          <button onclick="document.getElementById('char').classList.add('inview')"><a href=""> ABOUT</a></button>
+        </span>
+        <span class="shadow"></span>
+      </div>
+      <div class="fb">
+        <span class="second-ball">
+          <a href="">WORK</a>
+        </span>
+
+        <span class="shadow"></span>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="index.js"></script>
+  </body>
 </html>

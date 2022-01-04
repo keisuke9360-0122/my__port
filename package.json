@@ -20,7 +20,10 @@
   "homepage": "https://github.com/keisuke9360-0122/my__port#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.0.0",
     "postcss": "^8.3.11",
+    "sass": "^1.43.4",
     "tailwindcss": "^2.2.19"
   }
 }
